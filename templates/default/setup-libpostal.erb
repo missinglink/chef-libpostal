@@ -12,3 +12,7 @@ cd <%= node[:libpostal][:codedir] %>
 ./configure --datadir=<%= node[:libpostal][:datadir] %>
 make install
 ldconfig
+
+<%= if node[:libpostal][:extra_data_url] %>
+  curl <%= node[:libpostal][:extra_data_url] %> | tar -xz -C <%= node[:libpostal][:datadir] %>libpostal/address_parser
+<%= end %>
