@@ -1,0 +1,14 @@
+#!/bin/bash -ex
+
+if [ -d <%= node[:libpostal][:codedir] %>]
+then
+   rm -rf <%= node[:libpostal][:codedir] %>
+fi
+
+git clone https://github.com/openvenues/libpostal.git <%= node[:libpostal][:codedir] %>
+cd <%= node[:libpostal][:codedir] %>
+
+./bootstrap.sh
+./configure --datadir=<%= node[:libpostal][:datadir] %>
+make install
+ldconfig
