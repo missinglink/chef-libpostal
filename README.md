@@ -10,5 +10,5 @@ It requires about 4GB of space for all the training data, which is downloaded fr
 
 By default, the code is downloaded to `/usr/local/libpostal` and the training data goes in `/usr/local/libpostal-data`.
 
-if the `node[:libpostal][:extra_data_url` value is set, the script will attempt to download and extract a `gzip` archive from that
+if the `node[:libpostal][:extra_data_url]` value is set, the script will attempt to download and extract a `gzip` archive from that
 URL into the training data.
