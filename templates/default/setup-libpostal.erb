@@ -10,7 +10,7 @@ cd <%= node[:libpostal][:codedir] %>
 git checkout <%= node[:libpostal][:revision] %>
 
 ./bootstrap.sh
-./configure --datadir=<%= node[:libpostal][:datadir] %>
+./configure --datadir=<%= node[:libpostal][:datadir] %> --disable-data-download=<%= node[:libpostal][:disable_data_download] %>
 make install
 ldconfig
 
