@@ -11,6 +11,13 @@ git checkout <%= node[:libpostal][:revision] %>
 
 ./bootstrap.sh
 ./configure --datadir=<%= node[:libpostal][:datadir] %>
+
+# multicore - use all available CPU cores +1 to build binaries
+if [ -f /proc/cpuinfo ]; then
+   NUMJOBS=`expr $(grep processor /proc/cpuinfo | wc -l) + 1`
+   make -j${NUMJOBS}
+fi
+
 make install
 ldconfig
 
